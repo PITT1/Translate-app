@@ -38,11 +38,11 @@ function App() {
 
   return (
     <main>
-      <motion.div layoutScroll className='container'>
+      <motion.div layout className='container'>
         <textarea onChange={hanleChange} name="input-translate" autoCapitalize='sentences' required placeholder='Escribe algo para traducir'></textarea>
         <button onClick={translate}>TRADUCIR</button>
         <AnimatePresence>
-        {textOut && <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>{textOut}</motion.div>}
+        {textOut && <motion.div initial={{opacity: 0, y: 40}} animate={{opacity: 1, y: 0}} exit={{opacity: 0, y: 40}}>{textOut}</motion.div>}
         </AnimatePresence>
       </motion.div>
     </main>
