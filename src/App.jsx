@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion'
 import './App.css'
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
   }
 
   const hanleChange = (event) => {
+    if(event.target.value === ""){
+      setTextOut("");
+    }
     setTextIn(event.target.value);
   };
 
@@ -34,11 +38,13 @@ function App() {
 
   return (
     <main>
-      <div className='container'>
-        <textarea onChange={hanleChange} name="input-translate" cols="50" rows="10" autoCapitalize='sentences' required placeholder='Escribe algo para traducir'></textarea>
-        <button onClick={translate}>Traducir</button>
-        <div>{textOut}</div>
-      </div>
+      <motion.div layoutScroll className='container'>
+        <textarea onChange={hanleChange} name="input-translate" autoCapitalize='sentences' required placeholder='Escribe algo para traducir'></textarea>
+        <button onClick={translate}>TRADUCIR</button>
+        <AnimatePresence>
+        {textOut && <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>{textOut}</motion.div>}
+        </AnimatePresence>
+      </motion.div>
     </main>
   )
 }

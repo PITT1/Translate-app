@@ -12,6 +12,10 @@
   font-size: 1.4rem;
   padding: 10px;
   border-radius: 20px;
+  resize: none;
+  width: 90%;
+  height: 200px;
+  max-width: 600px;
 }
 
 .container button {
@@ -27,11 +31,12 @@
   background-color: aliceblue;
   color: black;
   letter-spacing: 5px;
+  border-radius: 500px;
 }
 
 .container div {
   height: 200px;
-  width: 100%;
+  width: 90%;
   max-width: 500px;
   background-color: rgb(43, 43, 43);
   border: 1px solid white;
